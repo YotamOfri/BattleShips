@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;1,100;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+:root {
+  /* Main Colors */
+  --bg: rgb(51, 51, 51);
+  --second: rgb(255, 218, 185);
+  --ac: rgb(255, 165, 0);
+  /* ShipsColors */
+  --ye: rgb(255, 255, 102);
+  --bl: rgb(102, 102, 255);
+  --pink: rgb(255, 102, 255);
+  --red: rgb(255, 102, 102);
+  --green: rgb(102, 255, 102);
+}
+
+body {
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+/* header */
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+header > ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+}
+header > ul > li > a {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+header > ul > li > a:hover {
+  color: rgb(159, 159, 159);
+}
+/* other */
+.title {
+  font-family: "Rubik Dirt", cursive;
+  letter-spacing: 3px;
+  font-size: 4rem;
+  color: white;
+}
+/* Boards Styling */
+.boards-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.boards-container > div:nth-child(1) > h1 {
+  color: #a5f2a5;
+}
+.boards-container > div:nth-child(2) > h1 {
+  color: #f2baa5;
+}
+.board {
+  display: flex;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.527);
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  border-collapse: collapse;
+}
+.square {
+  width: clamp(35px, 3.25vw, 1000px);
+  height: clamp(35px, 3.25vw, 1000px);
+  border: 0.5px solid #919191;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+}
+/* setUp Screen */
+.setup-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #17171763;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.setup {
+  width: clamp(500px, 35vw, 1000px);
+  height: clamp(500px, 75vh, 1000px);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.setup > h1 {
+  color: white;
+}
+.setup > h1:nth-child(2) {
+  font-weight: 300;
+}
+.small-board {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.small-board > div > div {
+  height: clamp(25px, 2.5vw, 40px);
+  width: clamp(25px, 2.5vw, 40px);
+}
+.rotate-btn {
+  width: 100px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--ac);
+  color: var(--ac);
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 500ms ease-in-out;
+}
+.rotate-btn:hover {
+  transform: scale(1.1);
+  background: var(--ac);
+  color: var(--bg);
+}
+/* setup Hover */
+.has_ship {
+  position: absolute;
+  height: clamp(25px, 2.5vw, 40px);
+  width: clamp(25px, 2.5vw, 40px);
+  background: var(--bl);
+  pointer-events: none;
+}
+.endpos-btn-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #17171763;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+.endpos-btn {
+  width: 100px !important;
+  border-radius: 2px;
+  transform: scale(0);
+  background: var(--ac);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: endpos-animation 500ms ease-in forwards;
+  cursor: pointer;
+  color: black;
+  transition: 500ms, 250ms width, 250ms height;
+}
+.endpos-btn:hover {
+  box-shadow: 1px 1px 10px 1px rgb(132, 123, 123);
+  color: white;
+}
+.endpos-btn:active {
+  width: 110px !important;
+  height: 45px;
+}
+@keyframes endpos-animation {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* MainPage  */
+.hitable:hover {
+  background: #4a4848;
+  cursor: pointer;
+}
+.hitted {
+  cursor: default;
+  background: #7ca9e4;
+}
+.hit-ship {
+  cursor: default;
+  background: #e47c7c;
+  position: relative;
+}
+.hit-ship::before {
+  content: "";
+  position: absolute;
+  width: 2%;
+  height: 90%;
+  background: #ffffff;
+  left: 50%;
+  top: 5%;
+  transform: rotate(135deg);
+  transform-origin: center;
+}
+.hit-ship::after {
+  content: "";
+  position: absolute;
+  width: 2%;
+  height: 90%;
+  background: #ffffff;
+  transform: rotate(-135deg);
+  left: 50%;
+  top: 5%;
+  transform-origin: center;
+}
+.sunk {
+  outline: 2px solid rgb(246, 235, 240);
+  z-index: 2;
+}
+.information {
+  color: white;
+}
+/* End Game Screen */
+.endgame-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #17171763;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.endgame {
+  width: clamp(500px, 25vw, 1000px);
+  height: clamp(500px, 65vh, 1000px);
+  transform: scale(0);
+  background: var(--bg);
+  animation: animate 1s ease-in forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+.endgame-title {
+  color: white;
+}
+.endgame-button {
+  width: 200px;
+  height: 40px;
+  background: var(--ac);
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 250ms ease;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.endgame-button:hover {
+  box-shadow: 1px 1px 10px 5px rgb(79, 82, 82);
+  color: white;
+}
+@keyframes animate {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+/* responsive Side */
+@media screen and (width < 827px) {
+  body {
+    height: fit-content;
+  }
+  .boards-container {
+    margin: 50px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .title {
+    position: absolute;
+    font-size: 2rem;
+    top: 0;
+    left: 2%;
+  }
+  header > ul {
+    width: 150px;
+    font-size: 0.75rem;
+  }
+}
