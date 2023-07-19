@@ -14,7 +14,8 @@ const ships_names = [
   "Submarine",
   "Destroyer",
 ];
-let bg_image = "url(../resources/carrier.svg)";
+let bg_image =
+  "url(https://raw.githubusercontent.com/YotamOfri/BattleShips/c6c6d591ab196a16406e659b50bb701e497d9add/resources/carrier.svg)";
 let rotate_state = "x";
 var length = 5;
 // main function
@@ -128,7 +129,8 @@ function changeships(div) {
     // blue case (carrier)
     case "rgb(102, 102, 255)": {
       div.style.backgroundColor = "rgb(102, 255, 102)";
-      bg_image = "url(../resources/battleShip.svg)";
+      bg_image =
+        "url(https://raw.githubusercontent.com/YotamOfri/BattleShips/c6c6d591ab196a16406e659b50bb701e497d9add/resources/BattleShip.svg)";
       length = 4;
       ship_name.innerText = "Place Your BattleShip";
       chnageBlockSize();
@@ -137,7 +139,8 @@ function changeships(div) {
     // green case (battleship)
     case "rgb(102, 255, 102)": {
       div.style.backgroundColor = "rgb(255, 255, 102)";
-      bg_image = "url(../resources/cruiser.svg)";
+      bg_image =
+        "url(https://raw.githubusercontent.com/YotamOfri/BattleShips/c6c6d591ab196a16406e659b50bb701e497d9add/resources/cruiser.svg)";
       length = 3;
       ship_name.innerText = "Place Your Cruiser";
       chnageBlockSize();
@@ -146,7 +149,8 @@ function changeships(div) {
     // yellow case (cruiser)
     case "rgb(255, 255, 102)": {
       div.style.backgroundColor = "rgb(255, 102, 102)";
-      bg_image = "url(../resources/submarine.svg)";
+      bg_image =
+        "url(https://raw.githubusercontent.com/YotamOfri/BattleShips/c6c6d591ab196a16406e659b50bb701e497d9add/resources/submarine.svg)";
       ship_name.innerText = "Place Your Submarine";
       chnageBlockSize();
       break;
@@ -154,7 +158,8 @@ function changeships(div) {
     // red case (submarine)
     case "rgb(255, 102, 102)": {
       div.style.backgroundColor = "rgb(255, 102, 255)";
-      bg_image = "url(../resources/destroyer.svg)";
+      bg_image =
+        "url(https://raw.githubusercontent.com/YotamOfri/BattleShips/c6c6d591ab196a16406e659b50bb701e497d9add/resources/destroyer.svg)";
       length = 2;
       ship_name.innerText = "Place Your Destroyer";
       chnageBlockSize();
